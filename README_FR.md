@@ -3,7 +3,37 @@
 **Créé par ashemka.**
 
 Application Windows portable pour l’Elegoo Centauri Carbon. Elle permet de lister les fichiers locaux de l’imprimante, de télécharger ou supprimer des G-code, et de créer des vidéos timelapse sur le PC à partir des images stockées dans `/local/aic_tlp/`.
+> English documentation available in `README_EN.md`.
 
+## 🚀 Démarrage rapide
+
+Ceci est le **dépôt du code source**. Pour utiliser l'application :
+
+### Quick Start (Compiler depuis la source)
+
+**Prérequis :**
+- Windows 10/11 (x64)
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download) ou plus récent
+
+**Compilation :**
+```bash
+# Option 1 : Script batch Windows
+build_release_win64.bat
+
+# Option 2 : .NET CLI
+dotnet build -c Release --self-contained -r win-x64
+```
+
+**Exécutable généré :** `bin/Release/net8.0-windows/win-x64/Centauri Carbon Downloader.exe`
+
+**Instructions détaillées :** Voir [BUILD_INSTRUCTIONS_FR.md](BUILD_INSTRUCTIONS_FR.md)
+
+### Que se passe-t-il au premier lancement ?
+
+1. Sélectionnez un dossier d'export (ou utilisez le défaut)
+2. FFmpeg est automatiquement téléchargé si nécessaire
+3. Entrez l'adresse IP de votre imprimante
+4. Connectez-vous et commencez à gérer vos fichiers !
 ## Objectif
 
 Le but est de rester KISS côté utilisateur final :

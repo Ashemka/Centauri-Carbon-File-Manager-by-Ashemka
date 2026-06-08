@@ -6,6 +6,36 @@ Portable Windows application for the Elegoo Centauri Carbon. It can list local p
 
 > French documentation is available in `README_FR.md`.
 
+## 🚀 Getting Started
+
+This is the **source code repository**. To use the application:
+
+### Quick Start (Build from Source)
+
+**Requirements:**
+- Windows 10/11 (x64)
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download) or later
+
+**Build:**
+```bash
+# Option 1: Windows batch script
+build_release_win64.bat
+
+# Option 2: .NET CLI
+dotnet build -c Release --self-contained -r win-x64
+```
+
+**Output:** `bin/Release/net8.0-windows/win-x64/Centauri Carbon Downloader.exe`
+
+**Detailed build instructions:** See [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)
+
+### What happens on first run?
+
+1. Select an export folder (or use default)
+2. FFmpeg is automatically downloaded if needed
+3. Enter your printer's IP address
+4. Connect and start managing your printer files!
+
 ## Goal
 
 The goal is to keep the end-user workflow as simple as possible:
