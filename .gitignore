@@ -2,18 +2,31 @@
 bin/
 obj/
 
-# Visual Studio
+# Visual Studio / IDE
 .vs/
+.vscode/
 *.user
 *.suo
 *.sln.iml
+*.csproj.user
+.DS_Store
 
-# Tools
+# Tools & Downloads
 tools/ffmpeg.exe
 tools/*.exe
-
-# User downloads folder
 Centauri_Downloads/
+
+# Build outputs
+*.dll
+*.exe
+*.pdb
+*.log
+
+# Settings and temporary files
+%LOCALAPPDATA%/CentauriCarbonDownloader/
+*.tmp
+*.bak
+~*
 *.user
 *.suo
 tools/ffmpeg.exe
