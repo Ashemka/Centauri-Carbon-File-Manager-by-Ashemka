@@ -1,53 +1,95 @@
 # Changelog
 
-## v0.5.4
+All notable changes to Centauri Carbon Downloader are documented here.
 
-- Reworked dark mode colors across tabs, grids, buttons, inputs, and disabled controls.
-- Added manual export folder selection from the UI.
-- Persisted the selected export folder in the user settings file.
-- Added an active export folder label in the main window.
+Format based on [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/).
 
-## v0.5.2
+## [0.5.4] - June 2026
 
-- Fixed a build failure caused by `ToggleAllVisible` being declared static while using the instance translation method `Tr(...)`.
-- Updated application version metadata to 0.5.2.
-- Switched the project SDK declaration from `Microsoft.NET.Sdk.WindowsDesktop` to `Microsoft.NET.Sdk` to avoid the NETSDK1137 warning on recent .NET SDKs.
+### ✨ Added
+- **Documentation**: BUILD_INSTRUCTIONS.md (English & French)
+- **.editorconfig**: Code style consistency
+- **CONTRIBUTING.md**: Contributor guidelines
+- **LICENSE**: Non-commercial attribution license
+- **README improvements**: Features table, languages table, FAQ, troubleshooting section
+- **Badges**: Version, license, platform badges
 
-## v0.5.1
+### 🔧 Changed
+- Dark mode colors refined (tabs, grids, buttons, inputs, controls)
+- build_release_win64.bat now includes error checking and progress feedback
+- .gitignore expanded for cleaner repository
+- CHANGELOG reformatted to standard format
 
-- Added English `README.md` for GitHub.
-- Added explicit `README_EN.md`.
-- Added `README_FR.md` while keeping `README_FR.txt`.
+### ✅ Fixed
+- Build script verifies .NET SDK before compilation
 
+## [0.5.2]
 
-## v0.5.0
+### ✅ Fixed
+- Build failure with `ToggleAllVisible` static method + instance `Tr(...)`
+- SDK declaration: Microsoft.NET.Sdk.WindowsDesktop → Microsoft.NET.Sdk
 
-- Branding ajouté : **Créé par ashemka** dans l’interface, le code, les métadonnées et la documentation.
-- Ajout du mode sombre.
-- Ajout du sélecteur de langue : français, anglais, italien, espagnol, allemand, japonais, chinois, coréen.
-- Interface agrandie et adaptée aux libellés plus longs.
-- Paramètres UI persistés dans `%LOCALAPPDATA%\CentauriCarbonDownloader\settings.json`.
-- Handshake WebSocket limité à 8 secondes.
-- Réponses WebSocket courtes limitées à 6 secondes.
-- Probes HTTP limités à 15 secondes.
-- Documentation GitHub ajoutée / renforcée.
+### 🔧 Changed
+- Version metadata → 0.5.2
+- Resolved NETSDK1137 warning
 
-## v0.4.5
+## [0.5.1]
 
-- Correction de la détection des fichiers timelapse sans extension `tlp_layer_*`.
-- Réduction du scan récursif inutile.
-- Progression visible pendant analyse, téléchargement et encodage.
+### ✨ Added
+- README.md (English)
+- README_EN.md (explicit English)
+- README_FR.md (French)
+- Backward compatibility with README_FR.txt
 
-## v0.4.x
+## [0.5.0] - Initial Release
 
-- Ajout du mode rapide PC avec FFmpeg.
-- Ajout du fallback export imprimante.
-- Amélioration progressive du scan `/local/aic_tlp/`.
+### ✨ Added
 
-## v0.3.x
+**Core Functionality:**
+- WebSocket connection to Elegoo Centauri Carbon
+- List files: `Cmd 258`
+- Delete files: `Cmd 259`
+- Download G-code files
+- Create MP4 timelapse videos (FFmpeg)
+- Parallel image downloads
+- Fallback printer export: `Cmd 323`
+- Automatic log generation
 
-- Ajout du support timelapse via export imprimante.
+**User Interface:**
+- Light & dark themes
+- 8 languages: EN, FR, IT, ES, DE, JA, ZH-Hans, ZH-Hant
+- Language selector
+- Persistent settings in %LOCALAPPDATA%
+- Active folder display
 
-## v0.1 / v0.2
+**Technical:**
+- C# / .NET 8.0 WinForms
+- Self-contained Windows x64
+- Portable (no installation)
+- Created by ashemka branding
 
-- Listing, téléchargement et suppression des G-code locaux.
+### ⚙️ Technical Details
+- WebSocket handshake timeout: 8s
+- Response timeout: 6s
+- HTTP probe timeout: 15s
+
+## [0.4.5]
+
+### ✅ Fixed
+- Timelapse frame detection (`tlp_layer_*` files)
+- Optimized recursive scanning
+
+### ✨ Added
+- Progress indication during scan/download/encode
+
+## [0.4.x - 0.3.x]
+
+- FFmpeg local encoding
+- Printer export fallback
+- Initial timelapse support
+
+---
+
+**Latest Release:** [0.5.4 on GitHub](https://github.com/Ashemka/Centauri-Carbon-File-Manager-by-Ashemka/releases)
+
+For more info, see [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)

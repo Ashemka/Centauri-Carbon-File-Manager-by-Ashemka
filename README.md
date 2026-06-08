@@ -1,16 +1,29 @@
-# Centauri Carbon Downloader v0.5.4
+# Centauri Carbon Downloader
 
-**Created by ashemka.**
+[![Version](https://img.shields.io/badge/version-0.5.4-blue.svg)](CHANGELOG.md)
+[![License](https://img.shields.io/badge/license-Non--Commercial--Attribution-red.svg)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-8.0%2B-512bd4.svg)](https://dotnet.microsoft.com)
+[![Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-0078d4.svg)](#)
 
-Portable Windows application for the Elegoo Centauri Carbon. It can list local printer files, download or delete G-code files, and create timelapse videos on the PC from the image frames stored in `/local/aic_tlp/`.
+**Created by ashemka** - A portable Windows application for managing Elegoo Centauri Carbon 3D printer files.
 
-> French documentation is available in `README_FR.md`.
+> 🇫🇷 [Documentation en français](README_FR.md) | 🇬🇧 [Full English version](README_EN.md)
+
+## ✨ Quick Features
+
+- 📋 List and manage printer files via WebSocket
+- ⬇️ Download G-code files to your PC
+- 🗑️ Delete files directly from printer
+- 🎬 Create MP4 timelapses locally with FFmpeg
+- 🌙 Light & Dark themes
+- 🌍 8 languages supported
+- ⚙️ Portable - no installation required
 
 ## 🚀 Getting Started
 
 This is the **source code repository**. To use the application:
 
-### Quick Start (Build from Source)
+### Quick Build
 
 **Requirements:**
 - Windows 10/11 (x64)
@@ -18,86 +31,158 @@ This is the **source code repository**. To use the application:
 
 **Build:**
 ```bash
-# Option 1: Windows batch script
+# Windows batch script (recommended)
 build_release_win64.bat
 
-# Option 2: .NET CLI
+# Or manual build
 dotnet build -c Release --self-contained -r win-x64
 ```
 
 **Output:** `bin/Release/net8.0-windows/win-x64/Centauri Carbon Downloader.exe`
 
-**Detailed build instructions:** See [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)
+📖 **Detailed instructions:** [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md) | [BUILD_INSTRUCTIONS_FR.md](BUILD_INSTRUCTIONS_FR.md)
 
-### What happens on first run?
+### First Launch
 
-1. Select an export folder (or use default)
-2. FFmpeg is automatically downloaded if needed
-3. Enter your printer's IP address
-4. Connect and start managing your printer files!
+1. Select export folder (or use default)
+2. FFmpeg auto-downloads if needed
+3. Enter printer IP address
+4. Click Connect → Manage files! 
 
-## Goal
+## 🎯 Design Goal
 
-The goal is to keep the end-user workflow as simple as possible:
+Keep the end-user workflow **simple and intuitive**:
 
-1. launch the application;
-2. enter the printer IP address;
-3. click **Connect**;
-4. select G-code files or timelapses;
-5. click **Download selected** or **Create videos on PC**.
+1. Launch the app
+2. Enter printer IP
+3. Click **Connect**
+4. Select files or timelapses
+5. Click **Download** or **Create videos**
 
-No PowerShell, no CMD, no browser tabs showing raw G-code, and no manual export from the slicer.
+No PowerShell. No CMD. No raw G-code. No manual slicing exports.
 
-## Main features
+## 🎨 Main Features
 
-- direct WebSocket connection to the printer;
-- local file listing through `Cmd 258`;
-- deletion of selected files through `Cmd 259`;
-- sequential G-code download to the selected export folder under `GCode`;
-- fast scan of the `/local/aic_tlp/` root folder;
-- detection of extensionless timelapse frames, including `tlp_layer_*`;
-- local MP4 generation with FFmpeg;
-- parallel download of source images;
-- fallback **Printer export** mode through `Cmd 323`;
-- log files in the selected export folder;
-- light and dark theme;
-- multilingual interface: French, English, Italian, Spanish, German, Japanese, Chinese, Korean.
+| Feature | Details |
+|---------|---------|
+| **File Management** | List, download, delete local printer files |
+| **Timelapse Videos** | Create MP4 videos from image frames locally |
+| **Smart Connection** | WebSocket + fallback HTTP export modes |
+| **Themes** | Light and dark mode support |
+| **Settings Persistence** | Remember folder location & UI preferences |
+| **Logging** | Detailed logs saved to export folder |
+| **Fast Performance** | Parallel downloads, optimized file scanning |
 
-## What's new in v0.5.4
+## 🌐 Supported Languages
 
-- Reworked dark mode colors for tabs, grids, buttons, inputs, and disabled controls.
-- Added a **Choose folder** button to select the export directory manually.
-- The selected export folder is persisted in `%LOCALAPPDATA%\CentauriCarbonDownloader\settings.json`.
-- The UI now displays the active export folder.
+| Language | Code | Status |
+|----------|------|--------|
+| English | en | ✅ Supported |
+| Français | fr | ✅ Supported |
+| Italiano | it | ✅ Supported |
+| Español | es | ✅ Supported |
+| Deutsch | de | ✅ Supported |
+| 日本語 | ja | ✅ Supported |
+| 中文 (简体) | zh-Hans | ✅ Supported |
+| 中文 (繁體) | zh-Hant | ✅ Supported |
 
-## What's new in v0.5.2
+## ❓ Troubleshooting & FAQ
 
-- Build fix for the localized UI selection toggle.
-- Version metadata updated to 0.5.2.
-- Project SDK declaration adjusted for cleaner builds with recent .NET SDK versions.
+### "dotnet is not recognized"
+- Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+- Restart your terminal
+- Verify: `dotnet --version`
 
-## What's new in v0.5.1
+### "FFmpeg download fails"
+- Download manually: https://ffmpeg.org/download.html
+- Place `ffmpeg.exe` in `tools/` folder
+- Restart the application
 
-- English `README.md` for GitHub;
-- French documentation moved to `README_FR.md`;
-- added `README_EN.md` as an explicit English copy;
-- kept the original French text in `README_FR.txt` for compatibility with the previous package.
+### "Cannot connect to printer"
+- Verify printer IP address
+- Ensure printer and PC are on same network
+- Check printer's WebSocket port (usually 80)
+- Check firewall settings
 
-## What's new in v0.5.0
+### "Video generation is slow"
+- This is normal for large image counts
+- FFmpeg processes frames sequentially
+- Close other applications to free memory
 
-- added **Created by ashemka** branding in the UI, code, project metadata, and documentation;
-- added language selector;
-- added dark mode;
-- adjusted the interface to better support longer labels;
-- UI settings are persisted in `%LOCALAPPDATA%\CentauriCarbonDownloader\settings.json`;
-- WebSocket handshake timeout set to 8 seconds;
-- short WebSocket response timeout set to 6 seconds;
-- HTTP probe timeout set to 15 seconds;
-- improved GitHub documentation.
+### "Build fails with SDK error"
+- Update .NET SDK: `dotnet sdk update`
+- Or install latest: https://dotnet.microsoft.com/download
 
-## Timelapses: how it works
+📖 **More help:** Check [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md) or open a [GitHub Issue](../../issues)
 
-The Centauri Carbon often exposes timelapse image frames in `/local/aic_tlp/`, but not necessarily a ready-to-download MP4 file. The application therefore provides two modes.
+## 🤝 Support & Contributing
+
+### Get Help
+- 🐛 **Report bugs**: [Open an issue](../../issues)
+- 💡 **Suggest features**: [GitHub Discussions](../../discussions)
+- ❓ **Ask questions**: [GitHub Discussions](../../discussions)
+
+### Want to Contribute?
+We welcome contributions! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
+
+Quick start:
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Commit changes: `git commit -m "Add my feature"`
+4. Push: `git push origin feature/my-feature`
+5. Open a Pull Request
+
+## 📄 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and updates.
+
+## 📋 Version History
+
+- **v0.5.4** - Dark mode improvements, folder selection
+- **v0.5.2** - Build fixes, SDK compatibility
+- **v0.5.1** - English README & translations
+- **v0.5.0** - Initial release with multi-language support
+
+## ⚖️ License
+
+This project is licensed under **Non-Commercial Attribution License**.
+
+**You can:**
+- Use for personal/educational purposes
+- Modify the code
+- Distribute non-commercial versions
+
+**You must:**
+- Cite **ashemka** as original author
+- Include license with distributions
+- Not use commercially without permission
+
+See [LICENSE](LICENSE) for full details.
+
+---
+
+## 📞 Contact
+
+**Created by ashemka**
+- 📧 Report issues: [GitHub Issues](../../issues)
+- 💬 Discuss: [GitHub Discussions](../../discussions)
+- 🔗 Repository: https://github.com/Ashemka/Centauri-Carbon-File-Manager-by-Ashemka
+
+## Detailed Documentation
+
+### For Users
+- [Getting Started Guide](BUILD_INSTRUCTIONS.md)
+- [French Guide](BUILD_INSTRUCTIONS_FR.md)
+- [Changelog](CHANGELOG.md)
+
+### For Developers
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [License](LICENSE)
+- [Code Style (.editorconfig)](.editorconfig)
+
+---
+
+*Centauri Carbon Downloader - Making 3D printing simpler, one file at a time.* 🖨️
 
 ### Create videos on PC
 
