@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>Centauri Carbon Downloader</AssemblyName>
+    <RootNamespace>CentauriCarbonDownloader</RootNamespace>
+    <Version>0.5.4</Version>
+    <Authors>ashemka</Authors>
+    <Company>Créé par ashemka</Company>
+    <Product>Centauri Carbon Downloader</Product>
+    <Description>Créé par ashemka. Outil portable pour lister, télécharger et supprimer les fichiers locaux d'une imprimante Centauri Carbon, avec génération locale rapide des vidéos timelapse via FFmpeg.</Description>
+  </PropertyGroup>
+  <ItemGroup Condition="Exists('tools\ffmpeg.exe')">
+    <EmbeddedResource Include="tools\ffmpeg.exe" LogicalName="ffmpeg.exe" />
+  </ItemGroup>
+</Project>

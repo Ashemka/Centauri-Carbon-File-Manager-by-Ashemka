@@ -1,0 +1,18 @@
+* text=auto
+
+# C# files
+*.cs text eol=crlf
+*.csproj text eol=crlf
+*.sln text eol=crlf
+
+# Batch files
+*.bat text eol=crlf
+
+# Markdown
+*.md text eol=lf
+*.txt text eol=lf
+
+# Manifest/Config
+*.json text eol=lf
+*.xml text eol=lf
+app.manifest text eol=crlf

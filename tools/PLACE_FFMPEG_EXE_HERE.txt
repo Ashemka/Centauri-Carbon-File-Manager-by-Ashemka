@@ -1,0 +1,7 @@
+Place ffmpeg.exe here before building if you want the final distribution folder to contain FFmpeg automatically.
+
+Expected path before build:
+tools\ffmpeg.exe
+
+Expected path after build:
+bin\Release\net8.0-windows\win-x64\publish\ffmpeg.exe

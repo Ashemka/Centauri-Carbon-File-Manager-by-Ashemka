@@ -1,0 +1,20 @@
+# Compiled binaries and objects
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.iml
+
+# Tools
+tools/ffmpeg.exe
+tools/*.exe
+
+# User downloads folder
+Centauri_Downloads/
+*.user
+*.suo
+tools/ffmpeg.exe
+Centauri_Downloads/

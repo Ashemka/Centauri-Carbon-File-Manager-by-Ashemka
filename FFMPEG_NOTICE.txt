@@ -1,0 +1,9 @@
+Centauri Carbon Downloader
+Créé par ashemka
+
+This application can use FFmpeg for local timelapse video generation.
+FFmpeg is a separate project with its own licensing terms.
+See: https://ffmpeg.org/legal.html
+
+If ffmpeg.exe is embedded during build, it is extracted locally at runtime to:
+%LOCALAPPDATA%\CentauriCarbonDownloader\tools\ffmpeg.exe
